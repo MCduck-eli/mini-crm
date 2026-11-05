@@ -288,6 +288,9 @@ begin
   if coalesce(current_setting('app.allow_history_write', true), '') = 'on' then
     return coalesce(new, old);
   end if;
+  if tg_op = 'DELETE' and pg_trigger_depth() > 1 then
+    return old;
+  end if;
   raise exception 'История задач неизменяема (операция % запрещена)', tg_op;
 end;
 $fn$;

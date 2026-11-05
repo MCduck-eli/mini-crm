@@ -53,14 +53,13 @@ supabase/
   fix-demo-auth-metadata.sql    ремонт identities и метаданных GoTrue
   reset-demo-passwords.sh       сброс паролей через Admin API (service_role, без сохранения ключа)
 vercel.json             SPA-rewrites + кеш статических assets
-.env.example            шаблон переменных окружения
 ```
 
 ## Локальный запуск
 
 ```bash
 npm install
-cp .env.example .env.local      # вписать реальные значения
+# создать .env.local вручную (в файле две строки — см. раздел «Переменные окружения»)
 npm run dev                     # http://localhost:5173
 ```
 
